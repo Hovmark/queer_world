@@ -23,7 +23,6 @@ class _AddBusinessRequestDialogState extends State<AddBusinessRequestDialog> {
   void initState() {
     super.initState();
     store.setupValidations();
-    // store.tags.addAll(["Graphic design", "App development", "Photography"]);
   }
 
   @override
@@ -74,7 +73,7 @@ class _AddBusinessRequestDialogState extends State<AddBusinessRequestDialog> {
                   onChanged: (value) => store.description = value,
                   decoration: const InputDecoration(labelText: 'Description'),
                 ),
-                const EditTagsWidget(),
+                EditTagsWidget(store: store),
                 BusinessRequestField(
                     label: "Website",
                     icon: QueerIcons.website,

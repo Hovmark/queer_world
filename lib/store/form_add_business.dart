@@ -33,7 +33,6 @@ abstract class _FormAddBusinessStore with Store {
   @observable
   String facebook = '';
 
-  @observable
   ObservableList<String> tags = ObservableList<String>();
 
   @observable

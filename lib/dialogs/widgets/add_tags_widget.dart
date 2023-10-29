@@ -7,9 +7,11 @@ import 'package:queer_world/store/form_add_business.dart';
 
 class EditTagsWidget extends StatefulWidget {
   const EditTagsWidget({
+    required this.store,
     super.key,
   });
 
+  final FormAddBusinessStore store;
   @override
   State<EditTagsWidget> createState() => _EditTagsWidgetState();
 }
@@ -17,7 +19,6 @@ class EditTagsWidget extends StatefulWidget {
 class _EditTagsWidgetState extends State<EditTagsWidget> {
   @override
   Widget build(BuildContext context) {
-    final FormAddBusinessStore store = FormAddBusinessStore();
     final TextEditingController controller = TextEditingController();
 
     return Observer(builder: (context) {
@@ -25,30 +26,20 @@ class _EditTagsWidgetState extends State<EditTagsWidget> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Wrap(spacing: 2, children: [
-            ...store.tags.map(
+            ...widget.store.tags.map(
               (tag) {
                 return TagChip(
                   category: tag,
-                  onTap: () => store.removeTag(tag),
+                  onTap: () => widget.store.removeTag(tag),
                 );
               },
             ).toList(),
             TextField(
               controller: controller,
-              // onEditingComplete: () {
-              //   store.tags.add(controller.text);
-              //   // store.addTag(controller.text);
-              //   controller.clear();
-              // },
-              // onTapOutside: (p) {
-              //   store.addTag(controller.text);
-              //   controller.clear();
-              // },
-              // onSubmitted: (tag) {
-              //   // store.addTag(tag);
-              //   store.tags.add(controller.text);
-              //   controller.clear();
-              // },
+              onEditingComplete: () {
+                widget.store.addTag(controller.text);
+                controller.clear();
+              },
               cursorColor: Colors.black,
               decoration: const InputDecoration(
                 label: QueerText(text: 'Add tag'),
@@ -60,9 +51,6 @@ class _EditTagsWidgetState extends State<EditTagsWidget> {
                 ),
               ),
             )
-            // AddTagChipField(
-            //   onTap: addCategories(textEditingController.text),
-            // ),
           ]),
         ],
       );

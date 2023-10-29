@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "858869899625",
+    "project_id": "queer-world",
+    "storage_bucket": "queer-world.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:858869899625:android:db40b58122a29e6a51ddf8",
+        "android_client_info": {
+          "package_name": "com.nenvistudio.queerworld"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDrDWbjAJsBWq4vVVaI4fxONxuU3xDHZGg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
